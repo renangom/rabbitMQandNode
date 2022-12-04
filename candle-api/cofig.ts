@@ -10,6 +10,7 @@ interface ENV{
 
     SOCKET_EVENT_NAME: string | undefined
     SOCKET_CLIENT_SERVER:string | undefined
+    MONGO_URI : string | undefined
 }
 
 interface Config{
@@ -19,6 +20,8 @@ interface Config{
 
     SOCKET_EVENT_NAME: string
     SOCKET_CLIENT_SERVER: string
+
+    MONGO_URI: string
 }
 
 
@@ -29,7 +32,8 @@ const getConfig = ():ENV => {
         QUEUE: process.env.QUEUE,
 
         SOCKET_CLIENT_SERVER: process.env.SOCKET_CLIENT_SERVER,
-        SOCKET_EVENT_NAME: process.env.SOCKET_EVENT_NAME
+        SOCKET_EVENT_NAME: process.env.SOCKET_EVENT_NAME,
+        MONGO_URI: process.env.MONGO_URI
 
     }
 }
