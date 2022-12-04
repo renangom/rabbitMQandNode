@@ -35,7 +35,7 @@ const generateCandles = async () => {
     const messageChannel = await createMessageChannel()
     if(messageChannel){
         while(true){
-            const loopTimes = Period.ONE_MINUTE / Period.TEN_SECONDS;
+            const loopTimes = Period.FIVE_MINUTES / Period.TEN_SECONDS;
             const candle = new Candle('BTC', new Date());
     
             console.log("==========================================")
