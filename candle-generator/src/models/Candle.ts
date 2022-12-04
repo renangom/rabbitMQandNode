@@ -8,7 +8,7 @@ export default class Candle {
     close: number
     color: CandleColor
     initialDateTime: Date
-    finalDateTime: Date
+    finalDateTime?: Date
     values: number[]
     currency: string
 
