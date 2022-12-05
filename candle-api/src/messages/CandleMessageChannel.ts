@@ -1,4 +1,4 @@
-import { Channel, connect } from 'amqplib'
+import { Channel, connect, ConsumeMessage } from 'amqplib'
 import { Server } from 'socket.io'
 import config from '../../cofig'
 import * as http from 'http'
@@ -7,7 +7,7 @@ import { Candle } from '../models/CandleModel'
 
 
 export default  class CandleMessageChannel{
-    private _channel : Channel
+    private _channel : Channel | undefined
     private _candleCtrl: CandleController
     private _io: Server
 
@@ -37,7 +37,7 @@ export default  class CandleMessageChannel{
     }
 
     public consumeMessages(){
-        this._channel?.consume(config.QUEUE, async(msg) => {
+        this._channel?.consume(config.QUEUE, async(msg:ConsumeMessage | null) => {
             const candleObj = JSON.parse(msg.content.toString())
             console.log('Message received')
 
